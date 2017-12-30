@@ -105,4 +105,29 @@ store.commit("increment")
 console.log(store.state.count)
 
 
+import { mapState } from 'vuex'
+
+export default {
+    computed: mapState({
+        count: state => state.count,
+        countAlias: "count",
+        countPlusLocalState (state) {
+            return state.count + this.localCount
+        }
+    })
+}
+
+computed: mapState([
+    "count"
+])
+
+actions: {
+  async actionA ({ commit }) {
+    commit("gotData", await getData())
+  },
+  async actionB ({ dispatch, commit }) {
+    await dispatch("actionA") //等待actionA完成
+    commit("gotOtherData", await getOtherData())
+  }
+}
 
