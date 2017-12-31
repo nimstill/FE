@@ -18,4 +18,17 @@ class FrenchDeck:
     def __getitem__(self,  prosition):
         return self._cards[position]
 
+#ch 2 xulie
+
+
+>>> symbols = '$%^&*&*'
+>>> codes = []
+>>> for symbol in symbols:
+	codes.append(ord(symbol))
+
+	
+>>> codes
+[36, 37, 94, 38, 42, 38, 42]
+>>> 
+
 
