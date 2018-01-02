@@ -333,4 +333,18 @@ class TemperatureInput extends React.Component {
 
   //组合与继承
 
+  function Box(props) {
+    return (
+      <div className="box">
+        <div className="left"> {props.left} </div>
+        <div className="right"> {props.right} </div>
+      </div>
+    );
+  }
+  function App() {
+    return (
+      <Box left={<Contacts />} right={<Chat />} />
+    );
+  }
+
   
