@@ -347,4 +347,27 @@ class TemperatureInput extends React.Component {
     );
   }
 
-  
+  /**
+   * 组件功能说明
+FilterableProductTable：橙色，包含所有组件。
+SearchBar：蓝色，接收用户输入。
+ProductTable：绿色，基于用户输入显示和过滤数据集合。
+ProductCategoryRow：青色，显示分类的标题。
+ProductRow：红色，显示每款商品。
+   */
+
+class ProductCategoryRow extends React.Compinent {
+    render() {
+        const category = this.props.category;
+        return (
+            <tr>
+                <th colSpan="2">
+                {category}
+                </th>
+            </tr>
+        );
+    }
+}
+
+// bq. React拥有2种不同类型的模型数据（Model）：props和state。
+
