@@ -55,3 +55,5 @@ class FrenchDeck:
 ('black', 'L'), ('white', 'L')]
 
 
+#_fields 属性是一个包含这个类所有字段名称的元组。
+# 

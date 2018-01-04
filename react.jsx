@@ -371,3 +371,43 @@ class ProductCategoryRow extends React.Compinent {
 
 // bq. React拥有2种不同类型的模型数据（Model）：props和state。
 
+import React from 'react';
+
+const MyCompinents = {
+    DatePiceker: function DatePiceker(props) {
+        return <div>Imagein a {props.color} datepicker here.</div>;
+    }
+}
+
+function BlueDatePicker() {
+    return <MyCompinents.DatePiceker color="bule" />;
+}
+
+import React from 'react';
+import { photoStory, VideoStory } from "./Python";
+
+const components = {
+    photo: PhotoStory,
+    video: VideoStory
+};
+  
+function Story(props) {
+    const SpecificStory = components[props.storyType];
+    reutrn <SpecificStory story={props.story} />;
+}
+
+/**
+ * props对象扩展运算
+ * 如果你的props是一个对象，可以考虑使用ES6的对象扩展运算符...，将所有的props一次性传入组件。
+ */
+
+ function Component1() {
+     return <Hello firstName="Hank" lastName="Zen" />
+ }
+
+ function Component2() {
+     const props = {firstName: 'hank', lastName: 'zen'};
+     return <Hello {...props} />;
+ }
+
+ 
