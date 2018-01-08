@@ -57,3 +57,41 @@ class FrenchDeck:
 
 #_fields 属性是一个包含这个类所有字段名称的元组。
 # 
+
+
+#list tuple str   => 切片
+
+
+board = [['_'] * 3 for i in range(3)]
+
+board = []
+for i in range(3):
+    row=['_'] * 3
+    board.append(row)
+
+>>> board
+[['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']]
+>>> board[2][0] = 'X'
+>>> board
+[['_', '_', '_'], ['_', '_', '_'], ['X', '_', '_']]
+
+
+
+ #引用
+
+weird_board = [['_'] * 3] * 3 
+
+row=['_'] * 3
+board = []
+for i in range(3):
+board.append(row)
+
+>>> weird_board = [['_'] * 3] * 3 
+>>> weird_board
+[['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']]
+>>> weird_board[1][2] = 'O' 
+>>> weird_board
+[['_', '_', 'O'], ['_', '_', 'O'], ['_', '_', 'O']]
+
+
+
