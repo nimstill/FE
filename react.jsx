@@ -611,6 +611,7 @@ export default BaseModule
 
 
 class Button extends React.Component {
+  // 本质是将一个箭头函数赋值给一个变量
   handleClick = () => {
     console.log(this);
   }
@@ -633,10 +634,42 @@ class Button extends React.Component {
 
   render() {
     return (
+      // 这样的书写语法可以确保this正确的绑定到handleClick
       <button onClick={(e) => this.handleClick(e)} > 
       onClick
       </button>
     );
+  }
+}
+
+
+
+async function timeout (ms) {
+  await new Promise((resolve) => {
+    setTimeout(resolve, ms)
+  })
+}
+
+async function asyncConsole (value, ms) {
+  await timeout(ms)
+  console.log(value)
+}
+aynyncConsole('hello', 1000)
+
+/**
+ * BFC：块级格式化上下文，容器里面的子元素不会在布局上影响到外面的元素，反之也是如此(按照这个理念来想，只要脱离文档流，肯定就能产生 BFC
+ */
+
+location / {
+  if ($request_method = 'OPTIONS') {
+    add_header 'Access-Control-Allow-Origin' '*';  
+    add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS'; 
+    add_header 'Access-Control-Allow-Credentials' 'true';
+    add_header 'Access-Control-Allow-Headers' 'DNT, X-Mx-ReqToken, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type';  
+    add_header 'Access-Control-Max-Age' 86400;  
+    add_header 'Content-Type' 'text/plain charset=UTF-8';  
+    add_header 'Content-Length' 0;  
+    return 200;  
   }
 }
 
