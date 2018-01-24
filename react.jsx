@@ -763,3 +763,66 @@ ReactDOM.render(
 
 
 
+function ActionLink() {
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('the link was clicked.');
+  }
+
+  return (
+    <a href="#" onClick={handleClick}>
+      Click me
+    </a>
+  );
+}
+
+
+class LoggingButton extends React.Component {
+  handleClick = () =>{
+    console.log('this is :' , this);
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick)>
+        Click me
+      </button>  
+    );
+  }
+}
+
+
+
+{unreadMessages.length > 0 &&
+  <h2>
+    You have {unreadMessages.length} unread messages.
+  </h2>
+}
+
+
+
+function ListItem(props) {
+  // Correct! There is no need to specify the key here:
+  return <li>{props.value}</li>;
+}
+
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =>
+    // Correct! Key should be specified inside the array.
+    <ListItem key={number.toString()}
+              value={number} />
+
+  );
+  return (
+    <ul>
+      {listItems}
+    </ul>
+  );
+}
+
+const numbers = [1, 2, 3, 4, 5];
+ReactDOM.render(
+  <NumberList numbers={numbers} />,
+  document.getElementById('root')
+);
