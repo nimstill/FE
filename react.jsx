@@ -71,12 +71,12 @@ componentDidMount() {
     );
 }
 
-compinentWillUnmount() {
+componentWillUnmount() {
     clearInterval(this.timerID);
 }
 
 
-class Toggle extends React.Compinent {
+class Toggle extends React.Component {
     constructor(props) {
         super(props);
         this.state = {isToggleOn: true};
@@ -356,7 +356,7 @@ ProductCategoryRow：青色，显示分类的标题。
 ProductRow：红色，显示每款商品。
    */
 
-class ProductCategoryRow extends React.Compinent {
+class ProductCategoryRow extends React.Component {
     render() {
         const category = this.props.category;
         return (
@@ -373,14 +373,14 @@ class ProductCategoryRow extends React.Compinent {
 
 import React from 'react';
 
-const MyCompinents = {
+const MyComponents = {
     DatePiceker: function DatePiceker(props) {
         return <div>Imagein a {props.color} datepicker here.</div>;
     }
 }
 
 function BlueDatePicker() {
-    return <MyCompinents.DatePiceker color="bule" />;
+    return <MyComponents.DatePiceker color="bule" />;
 }
 
 import React from 'react';
@@ -729,14 +729,14 @@ class Clock extends React.Component {
     this.state = {date: new Date()};
   }
 
-  compinentDidMount() {
+  componentDidMount() {
     this.timerID = setInterval(
       () => this.tick(),
       1000
     );
   }
 
-  compinentWillUnmount() {
+  componentWillUnmount() {
     clearInterval(this.timerID);
   }
 
@@ -826,3 +826,41 @@ ReactDOM.render(
   <NumberList numbers={numbers} />,
   document.getElementById('root')
 );
+
+
+// Forms
+
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+  
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('a name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+
+
+
+
