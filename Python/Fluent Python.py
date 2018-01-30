@@ -98,3 +98,10 @@ board.append(row)
 # Python 的排序算法——Timsort——是稳定的，意思是就算两个元素比不出大小，在每次排序的
 # 结果里它们的相对位置是固定的
 
+array map [0...n] = { 0 => 0, 1 => 1 }
+fib (n)
+    if (map m does not contain key n)
+        m[n] := fib(n-1) + fib(n-2)
+    return m[n]
+
+
